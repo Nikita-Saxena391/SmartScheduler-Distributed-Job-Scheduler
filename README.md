@@ -132,6 +132,8 @@ style AA fill:#ea580c,color:#fff
 
 ---
 
+
+
 erDiagram
 
 USER ||--o{ PROJECT : creates
