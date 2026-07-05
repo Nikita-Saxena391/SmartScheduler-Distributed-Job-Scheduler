@@ -134,22 +134,18 @@ style AA fill:#ea580c,color:#fff
 
 
 
+```mermaid
 erDiagram
 
 USER ||--o{ PROJECT : creates
-
 PROJECT ||--o{ QUEUE : contains
-
 QUEUE ||--o{ JOB : stores
-
 JOB ||--o{ JOBEXECUTION : generates
-
 WORKER ||--o{ JOBEXECUTION : executes
-
 JOB ||--o| DEADLETTERJOB : moved_to
 
 USER {
-    ObjectId _id
+    string _id
     string name
     string email
     string password
@@ -157,51 +153,52 @@ USER {
 }
 
 PROJECT {
-    ObjectId _id
+    string _id
     string name
     string description
-    date createdAt
+    string createdAt
 }
 
 QUEUE {
-    ObjectId _id
-    ObjectId projectId
+    string _id
+    string projectId
     string name
     string priority
 }
 
 JOB {
-    ObjectId _id
-    ObjectId queueId
+    string _id
+    string queueId
     string title
     string status
     int retryCount
-    date scheduledAt
+    string scheduledAt
 }
 
 WORKER {
-    ObjectId _id
+    string _id
     string name
     string status
-    datetime heartbeat
+    string heartbeat
     int jobsProcessed
 }
 
 JOBEXECUTION {
-    ObjectId _id
-    ObjectId jobId
-    ObjectId workerId
-    datetime startedAt
-    datetime completedAt
+    string _id
+    string jobId
+    string workerId
+    string startedAt
+    string completedAt
     string executionStatus
 }
 
 DEADLETTERJOB {
-    ObjectId _id
-    ObjectId jobId
+    string _id
+    string jobId
     string failureReason
-    datetime failedAt
+    string failedAt
 }
+```
 
 # 4. Tech Stack
 
