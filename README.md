@@ -132,6 +132,75 @@ style AA fill:#ea580c,color:#fff
 
 ---
 
+erDiagram
+
+USER ||--o{ PROJECT : creates
+
+PROJECT ||--o{ QUEUE : contains
+
+QUEUE ||--o{ JOB : stores
+
+JOB ||--o{ JOBEXECUTION : generates
+
+WORKER ||--o{ JOBEXECUTION : executes
+
+JOB ||--o| DEADLETTERJOB : moved_to
+
+USER {
+    ObjectId _id
+    string name
+    string email
+    string password
+    string role
+}
+
+PROJECT {
+    ObjectId _id
+    string name
+    string description
+    date createdAt
+}
+
+QUEUE {
+    ObjectId _id
+    ObjectId projectId
+    string name
+    string priority
+}
+
+JOB {
+    ObjectId _id
+    ObjectId queueId
+    string title
+    string status
+    int retryCount
+    date scheduledAt
+}
+
+WORKER {
+    ObjectId _id
+    string name
+    string status
+    datetime heartbeat
+    int jobsProcessed
+}
+
+JOBEXECUTION {
+    ObjectId _id
+    ObjectId jobId
+    ObjectId workerId
+    datetime startedAt
+    datetime completedAt
+    string executionStatus
+}
+
+DEADLETTERJOB {
+    ObjectId _id
+    ObjectId jobId
+    string failureReason
+    datetime failedAt
+}
+
 # 4. Tech Stack
 
 ### Frontend
