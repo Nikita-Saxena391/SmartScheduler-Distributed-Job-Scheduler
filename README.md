@@ -1,4 +1,4 @@
-# 🚀 Distributed Job Scheduler Dashboard
+# 🚀SmartScheduler-Distributed-Job-Scheduler
 
 A full-stack distributed job scheduling system built using **React, Node.js, MongoDB, and Socket.io**.  
 It provides real-time monitoring of jobs, workers, queues, and system performance through a live dashboard.
