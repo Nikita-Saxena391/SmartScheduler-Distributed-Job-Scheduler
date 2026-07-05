@@ -10,22 +10,6 @@ A distributed job scheduling platform that enables reliable background job execu
 
 ---
 
-# 2. Problem Statement
-
-Modern applications rely on background jobs for tasks such as email notifications, report generation, file processing, payment processing, and scheduled operations. Managing these jobs efficiently becomes challenging as the system scales.
-
-Traditional approaches often suffer from:
-
-- Lack of centralized job monitoring
-- Poor worker utilization
-- Limited scalability
-- Delayed status updates
-- Difficulty tracking job execution
-- No real-time visibility into system performance
-
-SmartScheduler addresses these challenges by providing a centralized platform for managing projects, queues, jobs, and workers while delivering real-time monitoring through an interactive dashboard.
-
----
 ## Complete System Architecture
 
 ```mermaid
@@ -130,7 +114,7 @@ style AA fill:#ea580c,color:#fff
 ```
 
 
-# 4. Key Features
+# 3. Key Features
 
 - Secure user authentication
 - Project management
@@ -148,7 +132,7 @@ style AA fill:#ea580c,color:#fff
 
 ---
 
-# 5. Tech Stack
+# 4. Tech Stack
 
 ### Frontend
 
@@ -185,23 +169,8 @@ style AA fill:#ea580c,color:#fff
 - Visual Studio Code
 
 ---
-
-# 6. Project Goal
-
-The objective of SmartScheduler is to simulate a production-ready distributed job scheduling system capable of handling asynchronous background tasks reliably while providing administrators with complete visibility into job execution, worker activity, and queue performance through a modern real-time dashboard.
-
-The project demonstrates concepts including:
-
-- Distributed Systems
-- Background Processing
-- Queue Management
-- Worker Scheduling
-- Real-Time Communication
-- REST API Design
-- Database Design
-- Frontend Dashboard Development
   
-# 📁 Project Structure
+# 5. Project Structure
 
 ```text
 SmartScheduler/
@@ -316,3 +285,17 @@ SmartScheduler/
 ├── README.md
 └── LICENSE
 ```
+# 6. Project Goal
+
+The objective of SmartScheduler is to simulate a production-ready distributed job scheduling system capable of handling asynchronous background tasks reliably while providing administrators with complete visibility into job execution, worker activity, and queue performance through a modern real-time dashboard.
+
+The project demonstrates concepts including:
+
+- Distributed Systems
+- Background Processing
+- Queue Management
+- Worker Scheduling
+- Real-Time Communication
+- REST API Design
+- Database Design
+- Frontend Dashboard Development
