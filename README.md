@@ -121,3 +121,119 @@ The project demonstrates concepts including:
 - REST API Design
 - Database Design
 - Frontend Dashboard Development
+  
+# 📁 Project Structure
+
+```text
+SmartScheduler/
+│
+├── backend/
+│   │
+│   ├── config/
+│   │   ├── db.js
+│   │   
+│   │
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── dashboardController.js
+│   │   ├── jobController.js
+│   │   ├── projectController.js
+│   │   ├── queueController.js
+│   │   └── workerController.js
+│   │
+│   ├── middleware/
+│   │   ├── auth.js
+│   │   ├── errorMiddleware.js
+│   │   ├── roleMiddleware.js
+│   │   └── validateRequest.js
+│   │
+│   ├── models/
+│   │   ├── DeadLetterJob.js
+│   │   ├── Job.js
+│   │   ├── JobExecution.js
+│   │   ├── Project.js
+│   │   ├── Queue.js
+│   │   ├── User.js
+│   │   └── Worker.js
+│   │
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── dashboardRoutes.js
+│   │   ├── jobRoutes.js
+│   │   ├── projectRoutes.js
+│   │   ├── queueRoutes.js
+│   │   └── workerRoutes.js
+│   │
+│   ├── services/
+│   │   ├── jobService.js
+│   │   ├── queueService.js
+│   │   ├── retryService.js
+│   │   ├── schedulerService.js
+│   │   └── workerService.js
+│   │
+│   ├── workers/
+│   │   ├── heartbeatMonitor.js
+│   │   ├── jobProcessor.js
+│   │   ├── startWorker.js
+│   │   └── workerRunner.js
+│   │
+│   ├── jobs/
+│   │   ├── jobClaiming.js
+│   │   └── jobDispatcher.js
+│   │
+│   ├── utils/
+│   │   ├── backoff.js
+│   │   ├── cronParser.js
+│   │   ├── logger.js
+│   │   └── responseHandler.js
+│   │
+│   ├── app.js
+│   ├── server.js
+│   ├── package.json
+│   └── .env
+│
+├── frontend/
+│   │
+│   ├── public/
+│   │
+│   ├── src/
+│   │   │
+│   │   ├── assets/
+│   │   │
+│   │   ├── components/
+│   │   │   ├── AdminRoute.jsx
+│   │   │   ├── JobsLineChart.jsx
+│   │   │   ├── JobsPieChart.jsx
+│   │   │   ├── ProtectedRoute.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   └── WorkerBarChart.jsx
+│   │   │
+│   │   ├── layouts/
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── Jobs.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Projects.jsx
+│   │   │   ├── Queues.jsx
+│   │   │   ├── Register.jsx
+│   │   │   └── Workers.jsx
+│   │   │
+│   │   ├── services/
+│   │   │   └── api.js
+│   │   │
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── README.md
+│   └── vite.config.js
+│
+├── .gitignore
+├── README.md
+└── LICENSE
+```
