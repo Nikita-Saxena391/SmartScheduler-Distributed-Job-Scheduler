@@ -26,30 +26,69 @@ Traditional approaches often suffer from:
 SmartScheduler addresses these challenges by providing a centralized platform for managing projects, queues, jobs, and workers while delivering real-time monitoring through an interactive dashboard.
 
 ---
+## System Architecture
 
-# 3. Solution
+```mermaid
+flowchart LR
 
-SmartScheduler provides a production-inspired distributed job scheduling system that simulates how modern background processing platforms operate.
+%% ===== FRONTEND =====
+subgraph Frontend
+A[User Browser]
+B[React + Vite]
+A --> B
+end
 
-The platform combines a responsive React frontend with a scalable Node.js backend to provide:
+%% ===== BACKEND =====
+subgraph Backend
+C[Express API]
+D[Socket.IO Server]
+E[Scheduler Service]
+end
 
-- Secure project and queue management
-- Job scheduling and execution
-- Distributed worker simulation
-- Real-time dashboard updates using Socket.IO
-- Interactive analytics using Recharts
-- Persistent storage with MongoDB
+%% ===== WORKERS =====
+subgraph Workers
+F[Worker 1]
+G[Worker 2]
+H[Worker N]
+end
 
-At a high level:
+%% ===== DATABASE =====
+subgraph Database
+I[(MongoDB)]
+end
 
-- Users authenticate and manage multiple projects.
-- Each project can contain multiple job queues.
-- Jobs are submitted into queues.
-- Workers continuously process queued jobs.
-- Job execution status is updated in real time.
-- Dashboard statistics and charts automatically refresh using WebSockets.
+%% ===== FLOW =====
+B --> C
+B <-->|Real-time Events| D
 
----
+C --> I
+E --> I
+
+E --> F
+E --> G
+E --> H
+
+F --> I
+G --> I
+H --> I
+
+F --> D
+G --> D
+H --> D
+
+style A fill:#2563eb,color:#fff
+style B fill:#2563eb,color:#fff
+
+style C fill:#7c3aed,color:#fff
+style D fill:#8b5cf6,color:#fff
+style E fill:#9333ea,color:#fff
+
+style I fill:#059669,color:#fff
+
+style F fill:#f97316,color:#fff
+style G fill:#f97316,color:#fff
+style H fill:#ea580c,color:#fff
+```
 
 # 4. Key Features
 
