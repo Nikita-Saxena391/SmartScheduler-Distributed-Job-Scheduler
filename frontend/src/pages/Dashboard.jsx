@@ -19,7 +19,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const socket = io("http://localhost:5000");
+const socket = io(import.meta.env.VITE_SOCKET_URL);
 
 const COLORS = ["#22c55e", "#3b82f6", "#f59e0b"];
 
