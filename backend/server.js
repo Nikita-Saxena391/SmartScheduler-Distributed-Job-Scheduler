@@ -30,11 +30,12 @@ const app = express();
 const server = http.createServer(app);
 
 // Socket.IO
-const io = new Server(server, {
-  cors: {
-    origin: "*",
-  },
-});
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+  })
+);
 
 global.io = io;
 
