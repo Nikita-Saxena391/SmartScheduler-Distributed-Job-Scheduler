@@ -26,69 +26,109 @@ Traditional approaches often suffer from:
 SmartScheduler addresses these challenges by providing a centralized platform for managing projects, queues, jobs, and workers while delivering real-time monitoring through an interactive dashboard.
 
 ---
-## System Architecture
+## Complete System Architecture
 
 ```mermaid
 flowchart LR
 
-%% ===== FRONTEND =====
+%% ================= FRONTEND =================
 subgraph Frontend
-A[User Browser]
+A[User]
 B[React + Vite]
+C[Dashboard]
+D[Projects]
+E[Queues]
+F[Jobs]
+G[Workers]
+H[Socket.io Client]
+
 A --> B
-end
-
-%% ===== BACKEND =====
-subgraph Backend
-C[Express API]
-D[Socket.IO Server]
-E[Scheduler Service]
-end
-
-%% ===== WORKERS =====
-subgraph Workers
-F[Worker 1]
-G[Worker 2]
-H[Worker N]
-end
-
-%% ===== DATABASE =====
-subgraph Database
-I[(MongoDB)]
-end
-
-%% ===== FLOW =====
 B --> C
-B <-->|Real-time Events| D
+B --> D
+B --> E
+B --> F
+B --> G
+B --> H
+end
 
-C --> I
-E --> I
+%% ================= BACKEND =================
+subgraph Backend
+I[Express Server]
+J[REST API]
+K[Authentication]
+L[Controllers]
+M[Scheduler Service]
+N[Queue Service]
+O[Retry Service]
+P[Socket.io Server]
 
-E --> F
-E --> G
-E --> H
+I --> J
+J --> K
+J --> L
 
-F --> I
-G --> I
-H --> I
+L --> M
+L --> N
+L --> O
+end
 
-F --> D
-G --> D
-H --> D
+%% ================= DATABASE =================
+subgraph Database
+Q[(MongoDB)]
 
-style A fill:#2563eb,color:#fff
+R[Users]
+S[Projects]
+T[Queues]
+U[Jobs]
+V[Workers]
+W[Job Executions]
+X[Dead Letter Queue]
+
+Q --> R
+Q --> S
+Q --> T
+Q --> U
+Q --> V
+Q --> W
+Q --> X
+end
+
+%% ================= WORKERS =================
+subgraph Worker Nodes
+Y[Worker-1]
+Z[Worker-2]
+AA[Worker-N]
+
+Y --> U
+Z --> U
+AA --> U
+
+Y --> P
+Z --> P
+AA --> P
+end
+
+%% ================= CONNECTIONS =================
+
+B --> J
+H <---> P
+
+L --> Q
+
+M --> Y
+M --> Z
+M --> AA
+
+N --> Q
+O --> Q
+
 style B fill:#2563eb,color:#fff
-
-style C fill:#7c3aed,color:#fff
-style D fill:#8b5cf6,color:#fff
-style E fill:#9333ea,color:#fff
-
-style I fill:#059669,color:#fff
-
-style F fill:#f97316,color:#fff
-style G fill:#f97316,color:#fff
-style H fill:#ea580c,color:#fff
+style I fill:#7c3aed,color:#fff
+style Q fill:#16a34a,color:#fff
+style Y fill:#ea580c,color:#fff
+style Z fill:#ea580c,color:#fff
+style AA fill:#ea580c,color:#fff
 ```
+
 
 # 4. Key Features
 
