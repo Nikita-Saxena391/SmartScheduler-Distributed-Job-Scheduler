@@ -10,7 +10,7 @@ A distributed job scheduling platform that enables reliable background job execu
 
 ---
 
-## Complete System Architecture
+# 2. System Architecture
 
 ```mermaid
 flowchart LR
